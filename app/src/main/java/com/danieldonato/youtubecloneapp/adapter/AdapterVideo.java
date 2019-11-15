@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.danieldonato.youtubecloneapp.R;
+import com.danieldonato.youtubecloneapp.model.Item;
 import com.danieldonato.youtubecloneapp.model.Video;
 
 import java.util.ArrayList;
@@ -17,10 +18,10 @@ import java.util.List;
 
 public class AdapterVideo extends RecyclerView.Adapter<AdapterVideo.MyViewHolder> {
 
-    private List<Video> videos = new ArrayList<>();
+    private List<Item> videos = new ArrayList<>();
     private Context context;
 
-    public AdapterVideo(List<Video> videos, Context context) {
+    public AdapterVideo(List<Item> videos, Context context) {
         this.videos = videos;
         this.context = context;
     }
@@ -35,8 +36,8 @@ public class AdapterVideo extends RecyclerView.Adapter<AdapterVideo.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-        Video video = videos.get(i);
-        myViewHolder.titulo.setText(video.getTitulo());
+        Item video = videos.get(i);
+        myViewHolder.titulo.setText(video.snippet.title);
     }
 
     @Override
